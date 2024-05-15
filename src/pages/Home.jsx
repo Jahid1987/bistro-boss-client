@@ -3,6 +3,8 @@ import Banner from "../components/home/Banner";
 import Category from "../components/home/Category";
 import Featured from "../components/home/Featured";
 import Menu from "../components/home/Menu";
+import Recomended from "../components/home/Recomended";
+import Testimonial from "../components/home/Testimonial";
 
 const Home = () => {
   return (
@@ -16,7 +18,9 @@ const Home = () => {
           Call Us: +88 0192345678910
         </h3>
       </section>
+      <Recomended />
       <Featured />
+      <Testimonial />
     </div>
   );
 };

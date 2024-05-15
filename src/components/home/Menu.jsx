@@ -4,7 +4,7 @@ import SectionTitle from "../SectionTitle";
 
 const Menu = () => {
   return (
-    <section>
+    <section className="px-1 md:p-2">
       <SectionTitle
         subHeading={"---Check it out---"}
         heading={"FROM OUR MENU"}
