@@ -12,7 +12,7 @@ const Card = () => {
         <h2 className="card-title">Caeser Salad</h2>
         <p>Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-sm md:btn-md lg:btn-lg border-b-4 hover:border-b-4 border-b-yellow-500 hover:border-b-yellow-500 hover:btn-neutral text-[#BB8506] hover:text-[#BB8506]">
+          <button className="btn btn-sm md:btn-md lg:btn-lg border-b-4 border-b-yellow-500  hover:btn-neutral text-[#BB8506] hover:text-[#BB8506]">
             Add to CArt
           </button>
         </div>
