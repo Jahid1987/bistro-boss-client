@@ -3,12 +3,9 @@ import SectionTitle from "../SectionTitle";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-
 // rating
 import { Rating } from "@smastrom/react-rating";
-
 import "@smastrom/react-rating/style.css";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
