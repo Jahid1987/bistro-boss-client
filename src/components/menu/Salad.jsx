@@ -3,6 +3,7 @@ import MenuItem from "../MenuItem";
 import Button from "../Button";
 import Banner from "../Banner";
 import img from "../../assets/menu/salad-bg.jpg";
+import { Link } from "react-router-dom";
 const Salad = () => {
   const menus = useFetch();
   return (
@@ -21,7 +22,9 @@ const Salad = () => {
           ))}
       </div>
       <div className="text-center my-4 md:my-6 lg:my-8">
-        <Button name={"ORDER YOUR FAVOURITE salad"} />
+        <Link to="/shop/salad">
+          <Button name={"ORDER YOUR FAVOURITE salad"} />
+        </Link>
       </div>
     </section>
   );

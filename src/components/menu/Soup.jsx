@@ -3,6 +3,7 @@ import MenuItem from "../MenuItem";
 import Button from "../Button";
 import Banner from "../Banner";
 import img from "../../assets/menu/soup-bg.jpg";
+import { Link } from "react-router-dom";
 const Soup = () => {
   const menus = useFetch();
   return (
@@ -21,7 +22,9 @@ const Soup = () => {
           ))}
       </div>
       <div className="text-center my-4 md:my-6 lg:my-8">
-        <Button name={"ORDER YOUR FAVOURITE soup"} />
+        <Link to="/shop/soup">
+          <Button name={"ORDER YOUR FAVOURITE soup"} />
+        </Link>
       </div>
     </section>
   );
