@@ -1,5 +1,4 @@
 const SectionTitle = ({ subHeading, heading, color }) => {
-  console.log(color);
   return (
     <div className="flex flex-col items-center gap-1 md:gap-2 text-center my-4 md:my-6 lg:my-8">
       <h3 className="text-[#D99904] italic text-base md:text-lg lg:text-xl">

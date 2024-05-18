@@ -4,7 +4,7 @@ import MenuItem from "../MenuItem";
 import Button from "../Button";
 
 const Offer = () => {
-  const menus = useFetch();
+  const menus = useFetch("menus");
   return (
     <section className="my-4 md:my-6 lg:my-8">
       <SectionTitle

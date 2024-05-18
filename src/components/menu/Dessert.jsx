@@ -5,7 +5,7 @@ import Banner from "../Banner";
 import img from "../../assets/menu/dessert-bg.jpeg";
 import { Link } from "react-router-dom";
 const Dessert = () => {
-  const menus = useFetch();
+  const menus = useFetch("menus");
   return (
     <section className="my-4 md:my-6 lg:my-8 ">
       <Banner

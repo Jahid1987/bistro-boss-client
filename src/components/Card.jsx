@@ -1,5 +1,4 @@
 const Card = ({ menu }) => {
-  console.log(menu);
   return (
     <div className="card max-w-[424px] bg-base-100 rounded-none">
       <figure className="h-[300px] w-full relative">

@@ -5,6 +5,8 @@ import Contact from "../pages/Contact";
 import Dashboard from "../pages/Dashboard";
 import Menu from "../pages/Menu";
 import Shop from "../pages/Shop";
+import Login from "../pages/auth/Login";
+import Signup from "../pages/auth/Signup";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: "/shop/:category",
         element: <Shop />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
       },
     ],
   },

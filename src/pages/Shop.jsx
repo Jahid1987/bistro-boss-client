@@ -12,7 +12,7 @@ const Shop = () => {
   const categories = ["salad", "pizza", "soup", "dessert", "drink"];
   const initialIndex = categories.indexOf(category);
   const [tabIndex, setTabIndex] = useState(initialIndex);
-  const items = useFetch();
+  const items = useFetch("menus");
   const salads = items.filter((item) => item.category === "salad");
   const pizzas = items.filter((item) => item.category === "pizza");
   const soups = items.filter((item) => item.category === "soup");

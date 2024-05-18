@@ -3,7 +3,7 @@ import SectionTitle from "../SectionTitle";
 import useFetch from "../../hooks/useFetch";
 
 const Recomended = () => {
-  const menus = useFetch();
+  const menus = useFetch("menus");
 
   return (
     <section className="px-1 md:px-2 lg:px-0">
