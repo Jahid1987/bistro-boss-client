@@ -30,6 +30,7 @@ const AuthProvider = ({ children }) => {
 
   // log in user with eamil and pass
   function logInUser(email, pass) {
+    setIsLoading(true);
     return signInWithEmailAndPassword(auth, email, pass);
   }
   // log out user
@@ -42,10 +43,10 @@ const AuthProvider = ({ children }) => {
     const unsubcribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-        setIsLoading(false);
       } else {
         setUser(null);
       }
+      setIsLoading(false);
     });
     return () => unsubcribe();
   }, [auth]);

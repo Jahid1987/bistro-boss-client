@@ -7,6 +7,7 @@ import Menu from "../pages/Menu";
 import Shop from "../pages/Shop";
 import Login from "../pages/auth/Login";
 import Signup from "../pages/auth/Signup";
+import PrivateRoutes from "./PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <PrivateRoutes>
+            <Dashboard />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/menu",
