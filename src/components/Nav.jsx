@@ -1,8 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { FaCartPlus } from "react-icons/fa";
+import useCart from "../hooks/useCart";
 
 const Nav = () => {
   const { user, logOutUser } = useAuth();
+  const [cart] = useCart();
+
+  // handle log out user
   async function handleLogOut() {
     try {
       await logOutUser();
@@ -10,7 +15,6 @@ const Nav = () => {
       console.log(err);
     }
   }
-  console.log(user);
   const navlinks = (
     <>
       <li>
@@ -63,6 +67,10 @@ const Nav = () => {
         <ul className="menu menu-horizontal px-1">{navlinks}</ul>
       </div>
       <div className="navbar-end">
+        <div className="badge badge-warning badge-lg  mr-2 text-xl">
+          <FaCartPlus className="inline mr-2" />
+          {cart.length}
+        </div>
         {user ? (
           <p
             onClick={handleLogOut}
