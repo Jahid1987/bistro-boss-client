@@ -10,9 +10,9 @@ const Cart = () => {
   const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
 
   async function handleDelete(id) {
-    const result = await confirmDelete();
-    if (!result) return;
     try {
+      const result = await confirmDelete();
+      if (!result.isConfirmed) return;
       await axioSecure.delete(`/carts/${id}`);
       await refetch();
       deleteMessage();

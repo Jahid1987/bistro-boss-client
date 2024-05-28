@@ -10,6 +10,6 @@ async function confirmDelete() {
     cancelButtonColor: "#d33",
     confirmButtonText: "I am sure, delete it!",
   });
-  return result.isConfirmed;
+  return result;
 }
 export default confirmDelete;

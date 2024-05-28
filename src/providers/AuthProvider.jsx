@@ -6,14 +6,19 @@ import {
   signOut,
   updateProfile,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 export const AuthContext = createContext("");
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider();
+  const axiosPublic = useAxiosPublic();
 
   // Creating user with eamil and pass
   function registerUserWithEmailAndPassword(email, pass) {
@@ -33,6 +38,12 @@ const AuthProvider = ({ children }) => {
     setIsLoading(true);
     return signInWithEmailAndPassword(auth, email, pass);
   }
+
+  // sign in with google
+  function googleSignIn() {
+    setIsLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  }
   // log out user
   function logOutUser() {
     return signOut(auth);
@@ -41,10 +52,29 @@ const AuthProvider = ({ children }) => {
   //   observing the user
   useEffect(() => {
     const unsubcribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
       if (currentUser) {
-        setUser(currentUser);
+        try {
+          const userInfo = {
+            email: currentUser.email,
+          };
+          axiosPublic.post("/auth/createJwt", userInfo, {
+            withCredentials: true,
+          });
+        } catch (err) {
+          console.log(err);
+        }
       } else {
-        setUser(null);
+        try {
+          const userInfo = {
+            email: currentUser?.email,
+          };
+          axiosPublic.post("/auth/deleteJwt", userInfo, {
+            withCredentials: true,
+          });
+        } catch (err) {
+          console.log(err);
+        }
       }
       setIsLoading(false);
     });
@@ -58,6 +88,7 @@ const AuthProvider = ({ children }) => {
     logOutUser,
     updateUser,
     logInUser,
+    googleSignIn,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

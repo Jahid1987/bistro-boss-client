@@ -8,6 +8,9 @@ import Login from "../pages/auth/Login";
 import Signup from "../pages/auth/Signup";
 import Dashboard from "../layout/Dashboard";
 import Cart from "../pages/dashboard/Cart";
+import PrivateRoutes from "./PrivateRouter";
+import Users from "../pages/dashboard/Users";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -58,7 +61,11 @@ const router = createBrowserRouter([
       },
       {
         path: "cart",
-        element: <Cart />,
+        element: (
+          <PrivateRoutes>
+            <Cart />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "review",
@@ -67,6 +74,30 @@ const router = createBrowserRouter([
       {
         path: "booking",
         element: <h3>This is booking</h3>,
+      },
+      {
+        path: "adminhome",
+        element: <h3>This is adminhome</h3>,
+      },
+      {
+        path: "additems",
+        element: <h3>This is additems</h3>,
+      },
+      {
+        path: "manateitems",
+        element: <h3>This is manateitems</h3>,
+      },
+      {
+        path: "bookings",
+        element: <h3>This is bookings</h3>,
+      },
+      {
+        path: "users",
+        element: (
+          <AdminRoute>
+            <Users />
+          </AdminRoute>
+        ),
       },
     ],
   },

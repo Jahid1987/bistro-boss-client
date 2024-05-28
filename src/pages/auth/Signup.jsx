@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Social from "../../components/auth/Social";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Signup = () => {
   const { registerUserWithEmailAndPassword, updateUser } = useAuth();
@@ -14,13 +15,20 @@ const Signup = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
 
+  // creating user with email and pass in firebase
   async function handleRegister(data) {
-    console.log(data);
     try {
       await registerUserWithEmailAndPassword(data.email, data.password);
       await updateUser(data.name);
+      const user = {
+        name: data.name,
+        email: data.email,
+        role: "guest",
+      };
+      await axiosPublic.post("/users", user);
       toast.success("You are registered!");
       navigate("/");
     } catch (err) {

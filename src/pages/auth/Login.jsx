@@ -16,7 +16,6 @@ import { Helmet } from "react-helmet-async";
 const Login = () => {
   const { logInUser } = useAuth();
   const location = useLocation();
-  console.log(location);
   const navigate = useNavigate();
   const {
     register,
@@ -143,6 +142,7 @@ const Login = () => {
               <p className="text-base lg:text-lg font-medium">
                 Or sign in with
               </p>
+
               <Social />
             </div>
           </form>

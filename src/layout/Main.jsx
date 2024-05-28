@@ -1,8 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 const Main = () => {
   const location = useLocation();
   const noHeaderFooter =
@@ -15,7 +14,6 @@ const Main = () => {
         <Outlet />
       </div>
       {noHeaderFooter || <Footer />}
-      <ToastContainer />
     </div>
   );
 };
