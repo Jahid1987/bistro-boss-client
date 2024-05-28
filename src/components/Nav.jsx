@@ -67,10 +67,12 @@ const Nav = () => {
         <ul className="menu menu-horizontal px-1">{navlinks}</ul>
       </div>
       <div className="navbar-end">
-        <div className="badge badge-warning badge-lg  mr-2 text-xl">
-          <FaCartPlus className="inline mr-2" />
-          {cart.length}
-        </div>
+        <Link to="/dashboard/cart">
+          <div className="badge badge-warning badge-lg  mr-2 ">
+            <FaCartPlus className="inline mr-2" />
+            {cart.length}
+          </div>
+        </Link>
         {user ? (
           <p
             onClick={handleLogOut}

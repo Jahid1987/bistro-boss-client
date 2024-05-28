@@ -1,0 +1,94 @@
+import {
+  FaBars,
+  FaCalendar,
+  FaEnvelope,
+  FaHome,
+  FaShoppingCart,
+  FaWallet,
+} from "react-icons/fa";
+import { FaBagShopping } from "react-icons/fa6";
+import { MdOutlineRateReview } from "react-icons/md";
+import { TbBrandBooking } from "react-icons/tb";
+import { NavLink, Outlet } from "react-router-dom";
+
+const Dashboard = () => {
+  return (
+    <div className="flex gap-3 h-full">
+      <div className="w-[280px] bg-[#D1A054] p-5 min-h-screen">
+        <h3 className="uppercase text-[#151515] font-bold text-xl">
+          Bistro Boss
+        </h3>
+        <h4 className="font-light text-base uppercase">Restaurant</h4>
+        <ul className="menu pl-0 mt-5 uppercase space-y-2">
+          <li>
+            <NavLink to="/dashboard/userhome">
+              <FaHome />
+              User Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/reservation">
+              <FaCalendar />
+              Reservation
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/payment">
+              <FaWallet />
+              payment history
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/cart">
+              <FaShoppingCart />
+              My Cart
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/review">
+              <MdOutlineRateReview />
+              add review
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/booking">
+              <TbBrandBooking />
+              my booking
+            </NavLink>
+          </li>
+          <div className="divider"></div>
+          <li>
+            <NavLink to="/">
+              <FaHome />
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/menu">
+              <FaBars />
+              Menu
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/shop/salad">
+              <FaBagShopping />
+              Shop
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact">
+              <FaEnvelope />
+              contact
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+
+      <div className="flex-1">
+        <Outlet />
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;
