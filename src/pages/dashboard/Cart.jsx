@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SectionTitle from "../../components/SectionTitle";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useCart from "../../hooks/useCart";
@@ -28,7 +29,17 @@ const Cart = () => {
         <div className="flex justify-between uppercase">
           <p className="text-3xl font-semibold">Total orders: {cart.length}</p>
           <p className="text-3xl font-semibold">total price: ${totalPrice}</p>
-          <button className="btn btn-sm bg-[#D1A054] text-white">Pay</button>
+          {cart.length > 0 ? (
+            <Link to="/dashboard/payment">
+              <button className="btn btn-sm bg-[#D1A054] text-white">
+                Pay
+              </button>
+            </Link>
+          ) : (
+            <button disabled className="btn btn-sm bg-[#D1A054] text-white">
+              Pay
+            </button>
+          )}
         </div>
         <div className="overflow-x-auto mt-5">
           <table className="table ">
