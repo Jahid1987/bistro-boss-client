@@ -11,6 +11,9 @@ import Cart from "../pages/dashboard/Cart";
 import PrivateRoutes from "./PrivateRouter";
 import Users from "../pages/dashboard/Users";
 import AdminRoute from "./AdminRoute";
+import AddItems from "../pages/dashboard/AddItems";
+import ManageItems from "../pages/dashboard/ManageItems";
+import UpdateItem from "../pages/dashboard/UpdateItem";
 
 const router = createBrowserRouter([
   {
@@ -81,11 +84,27 @@ const router = createBrowserRouter([
       },
       {
         path: "additems",
-        element: <h3>This is additems</h3>,
+        element: (
+          <AdminRoute>
+            <AddItems />
+          </AdminRoute>
+        ),
       },
       {
-        path: "manateitems",
-        element: <h3>This is manateitems</h3>,
+        path: "manageitems",
+        element: (
+          <AdminRoute>
+            <ManageItems />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "updateitem/:id",
+        element: (
+          <AdminRoute>
+            <UpdateItem />
+          </AdminRoute>
+        ),
       },
       {
         path: "bookings",

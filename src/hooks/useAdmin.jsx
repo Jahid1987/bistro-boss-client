@@ -9,8 +9,12 @@ const useAdmin = () => {
     queryKey: ["isAdmin"],
     queryFn: async () => {
       const { data } = await axioSecure.get(`/users/${user.email}`);
-      if (!data.role === "admin") return false;
-      return true;
+
+      if (data.role === "admin") {
+        return true;
+      } else {
+        return false;
+      }
     },
   });
   return [isAdmin, isAdminLoading];
